@@ -45,9 +45,6 @@ public class SchemeRouter {
         mInterruptList.clear();
     }
 
-    /**
-     * 初始化路由表 target->activity
-     */
     private static void initMappings() {
         if (!mSchemeMap.isEmpty() || moduleName == null) {
             return;
