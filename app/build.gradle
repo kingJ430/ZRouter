@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        applicationId "com.demo.common.router"
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [routerType :'Home']
+            }
+        }
+    }
+
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, "minutes"
+//    resolutionStrategy.failOnVersionConflict()
+}
+
+dependencies {
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:multidex:1.0.1'
+    compile "com.android.support:appcompat-v7:${GOOGLE_SUPPORT_LIBRARY_VERSION}"
+//    compile 'com.squareup:javapoet:1.6.1'
+//    apt project(":router")
+//    apt "com.common:router:1.0.7"
+//    provided 'com.common:router-annoation:1.0.7'
+//    compile project(":annoation")
+//    compile project(":router-compiler")
+//    compile "com.common:router-compiler:1.0.7"
+
+
+
+    compile project(':router-compiler')
+    provided project(":annoation")
+    annotationProcessor project(':router')
+}

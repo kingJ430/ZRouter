@@ -1,0 +1,42 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+//apply from: "http://gitlab.dxy.net/android-developer/idxyer-2016/raw/develop/buildconfig/config.gradle?private_token=j5dscsRsYypAHfsxVsQ8";
+//def remoteScript = 'http://192.168.1.10/xkandroid/ddyc/raw/develop/buildsystem/config-branch.gradle?private_token=mziyfAxc_-JQuzcoxRUh'.toURL().text
+//apply from: evaluate(remoteScript)['remoteUrl']
+
+ext {
+    GOOGLE_SUPPORT_LIBRARY_VERSION = "25.3.1"
+    android = [
+            buildToolsVersion: "26.0.2",
+            minSdkVersion    : 17,
+            targetSdkVersion : 25,
+            compileSdkVersion: 25]
+
+    ROUTER_VERSION = '2.0-release'
+}
+
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://maven.google.com"}
+
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://maven.google.com"}
+    }
+
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

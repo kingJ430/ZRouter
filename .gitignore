@@ -1,0 +1,8 @@
+/build
+
+/.gradle
+/.idea
+/projectFilesBackup
+/ActivityRouter.iml
+/scheme_router.iml
+/app/app.iml
