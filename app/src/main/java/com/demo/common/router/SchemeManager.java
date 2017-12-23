@@ -15,7 +15,7 @@ public class SchemeManager {
     };
 
     private static String [] mSchemes = new String[] {
-            "dxy://"
+            "scheme://"
     };
 
     public static void init() {
