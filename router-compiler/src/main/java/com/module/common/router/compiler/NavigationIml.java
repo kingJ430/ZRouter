@@ -33,34 +33,50 @@ public class NavigationIml implements Navigation {
     private Bundle mBundle;
 
     @Override
-    public Navigation appendQueryParameter(String key, String value) {
-        mParameters.put(key,value);
+    public Navigation appendQueryString(String key, String value) {
+//        mParameters.put(key,value);
+        if(mBundle == null) {
+            mBundle = new Bundle();
+        }
+        mBundle.putString(key,value);
         return this;
     }
 
-    @Override
-    public Navigation appendQueryMap(Map<String,String> pMap) {
-        if(pMap != null && pMap.size() > 0) {
-            mParameters.putAll(pMap);
-        }
-        return this;
-    }
+//    @Override
+//    public Navigation appendQueryMap(Map<String,String> pMap) {
+//        if(pMap != null && pMap.size() > 0) {
+//            mParameters.putAll(pMap);
+//        }
+//        return this;
+//    }
 
     @Override
     public Navigation appendQueryInteger(String key, int value) {
-        mParameters.put(key,value+"");
+//        mParameters.put(key,value+"");
+        if(mBundle == null) {
+            mBundle = new Bundle();
+        }
+        mBundle.putInt(key,value);
         return this;
     }
 
     @Override
     public Navigation appendQueryBoolean(String key, boolean value) {
-        mParameters.put(key,value+"");
+//        mParameters.put(key,value+"");
+        if(mBundle == null) {
+            mBundle = new Bundle();
+        }
+        mBundle.putBoolean(key,value);
         return this;
     }
 
     @Override
     public Navigation appendQueryLong(String key, long value) {
-        mParameters.put(key,value+"");
+//        mParameters.put(key,value+"");
+        if(mBundle == null) {
+            mBundle = new Bundle();
+        }
+        mBundle.putLong(key,value);
         return this;
     }
 

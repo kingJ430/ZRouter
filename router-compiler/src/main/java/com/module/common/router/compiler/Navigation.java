@@ -16,8 +16,8 @@ import java.util.Map;
  */
 public interface Navigation {
 
-    Navigation appendQueryParameter(String key, String value);
-    Navigation appendQueryMap(Map<String,String> pMap);
+    Navigation appendQueryString(String key, String value);
+//    Navigation appendQueryMap(Map<String,String> pMap);
     Navigation appendQueryInteger(String key, int value);
     Navigation appendQueryBoolean(String key, boolean value);
     Navigation appendQueryLong(String key, long value);

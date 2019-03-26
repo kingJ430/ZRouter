@@ -8,7 +8,7 @@ import com.module.common.annoation.Router;
 import com.module.common.router.compiler.RouterNavigation;
 
 
-@Router(path = {"home/main"},paramAlias = {"id","s"})
+@Router(path = {"home/main"})
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -23,8 +23,9 @@ public class MainActivity extends AppCompatActivity {
                 _bundle.putString("MainActivity","android");
                 RouterNavigation.navigation()
                         .navigate(MainActivity.this,"home/init")
-                        .appendQueryParameter("s","ssss")
-                        .appendQueryParameter("s1","ddd")
+                        .appendQueryString("s","ssss")
+                        .appendQueryString("s1","ddd")
+                        .appendQueryInteger("h2",2)
                         .addBundle(_bundle)
                         .start();
             }

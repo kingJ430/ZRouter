@@ -10,19 +10,20 @@ import com.module.common.router.compiler.RouterNavigation;
 import com.module.common.router.compiler.SchemeRouter;
 
 
-@Router(path = {"home/init","home/dd"},paramAlias = {"s","s1"}
-,paramName = {"d1","d2"},paramType = {"s","s"},needLogined = false,needClickable = true)
+@Router(path = {"home/init","home/dd"},needLogined = false,needClickable = true)
 public class InitActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_init);
-        String param1 = getIntent().getStringExtra("d1");
-        String param2 = getIntent().getStringExtra("d2");
         Bundle _bundle = getIntent().getBundleExtra(SchemeRouter.KEY_BUNDLE);
+        String param1 = _bundle.getString("s");
+        String param2 = _bundle.getString("s1");
+        int param3 = _bundle.getInt("h2",0);
+
         Log.e("InitActivity","param1 = " + param1
-         + "  param2 = " + param2 + " ---" + _bundle.getString("MainActivity"));
+         + "  param2 = " + param2 + " ---" + _bundle.getString("MainActivity") + " param3= " + param3);
 
         findViewById(R.id.init).setOnClickListener(new View.OnClickListener() {
             @Override
